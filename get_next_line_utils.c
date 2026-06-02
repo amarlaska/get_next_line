@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line_utils.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: amarlasc <amarlasc@student.42urduliz.co    +#+  +:+       +#+        */
+/*   By: amarlasc <amarlasc@student.42urduliz.com>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/28 16:39:07 by amarlasc          #+#    #+#             */
-/*   Updated: 2026/06/01 17:56:44 by amarlasc         ###   ########.fr       */
+/*   Updated: 2026/06/02 18:32:17 by amarlasc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,5 +64,28 @@ char	*ft_strjoin(char *s1, char *s2)
 		j++;
 	}
 	ptr [i + j] = '\0';
+	free(s1);
 	return (res);
+}
+
+char	*ft_strdup(const char *s)
+{
+	int		i;
+	int		len;
+	char	*d;
+
+	len = 0;
+	while (s[len])
+		len++;
+	d = malloc(len + 1);
+	if (!d)
+		return (NULL);
+	i = 0;
+	while (s[i])
+	{
+		d[i] = s[i];
+		i++;
+	}
+	d[i] = '\0';
+	return (d);
 }
