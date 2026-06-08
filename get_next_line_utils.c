@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line_utils.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: amarlasc <amarlasc@student.42urduliz.com>  +#+  +:+       +#+        */
+/*   By: amarlasc <amarlasc@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/28 16:39:07 by amarlasc          #+#    #+#             */
-/*   Updated: 2026/06/02 18:32:17 by amarlasc         ###   ########.fr       */
+/*   Updated: 2026/06/08 17:24:55 by amarlasc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,6 @@ char	*ft_strchr(const char *s, int c)
 char	*ft_strjoin(char *s1, char *s2)
 {
 	char			*ptr;
-	char			*res;
 	size_t			i;
 	size_t			j;
 
@@ -50,7 +49,6 @@ char	*ft_strjoin(char *s1, char *s2)
 	ptr = malloc(ft_strlen(s1) + ft_strlen(s2) + 1);
 	if (!ptr)
 		return (NULL);
-	res = ptr;
 	i = 0;
 	j = 0;
 	while (s1[i])
@@ -65,7 +63,7 @@ char	*ft_strjoin(char *s1, char *s2)
 	}
 	ptr [i + j] = '\0';
 	free(s1);
-	return (res);
+	return (ptr);
 }
 
 char	*ft_strdup(const char *s)
