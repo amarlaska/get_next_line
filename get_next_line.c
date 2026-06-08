@@ -6,7 +6,7 @@
 /*   By: amarlasc <amarlasc@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/28 16:37:57 by amarlasc          #+#    #+#             */
-/*   Updated: 2026/06/08 17:59:33 by amarlasc         ###   ########.fr       */
+/*   Updated: 2026/06/08 18:37:02 by amarlasc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,19 +27,13 @@ char	*read_and_stash(int fd, char *stash)
 	{
 		bytes_read = read(fd, buffer, BUFFER_SIZE);
 		if (bytes_read < 0)
-		{
-			free (buffer);
-			return (free(stash), NULL);
-		}
+			return (free (buffer), free(stash), NULL);
 		if (bytes_read == 0)
 			break ;
 		buffer[bytes_read] = '\0';
 		stash = ft_strjoin(stash, buffer);
 		if (!stash)
-		{
-			free (buffer);
-			return (NULL);
-		}
+			return (free (buffer), NULL);
 	}
 	free (buffer);
 	return (stash);
