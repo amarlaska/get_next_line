@@ -6,7 +6,7 @@
 /*   By: amarlasc <amarlasc@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/28 16:37:57 by amarlasc          #+#    #+#             */
-/*   Updated: 2026/06/08 18:37:02 by amarlasc         ###   ########.fr       */
+/*   Updated: 2026/06/11 18:07:59 by amarlasc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,27 +16,27 @@ char	*read_and_stash(int fd, char *stash)
 {
 	char	*buffer;
 	int		bytes_read;
+	char	*tmp;
 
 	if (!stash)
 		stash = ft_strdup("");
 	buffer = malloc(BUFFER_SIZE + 1);
-	if (!buffer)
-		return (NULL);
+	if (!stash || !buffer)
+		return (free(stash), free(stash), (NULL));
 	bytes_read = 1;
 	while (bytes_read > 0 && !ft_strchr(stash, '\n'))
 	{
 		bytes_read = read(fd, buffer, BUFFER_SIZE);
 		if (bytes_read < 0)
 			return (free (buffer), free(stash), NULL);
-		if (bytes_read == 0)
-			break ;
 		buffer[bytes_read] = '\0';
-		stash = ft_strjoin(stash, buffer);
-		if (!stash)
-			return (free (buffer), NULL);
+		tmp = ft_strjoin(stash, buffer);
+		free(stash);
+		if (!tmp)
+			return (free(buffer), (NULL));
+		stash = tmp;
 	}
-	free (buffer);
-	return (stash);
+	return (free(buffer), stash);
 }
 
 char	*extract_line(char *stash)
@@ -76,7 +76,7 @@ char	*update_stash(char *stash)
 	char	*tmp;
 
 	tmp = ft_strchr(stash, '\n');
-	if (!tmp)
+	if (!tmp || !*(tmp + 1))
 	{
 		free(stash);
 		return (NULL);
@@ -108,8 +108,12 @@ char	*get_next_line(int fd)
 	if (!stash)
 		return (NULL);
 	line = extract_line(stash);
-	if (!stash || !*stash)
+	if (!line)
+	{
+		free(stash);
+		stash = NULL;
 		return (NULL);
+	}
 	stash = update_stash(stash);
 	return (line);
 }

@@ -6,17 +6,19 @@
 /*   By: amarlasc <amarlasc@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/28 16:39:07 by amarlasc          #+#    #+#             */
-/*   Updated: 2026/06/08 17:24:55 by amarlasc         ###   ########.fr       */
+/*   Updated: 2026/06/11 17:57:37 by amarlasc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
 
-int	ft_strlen(char *s)
+size_t	ft_strlen(char *s)
 {
-	int	i;
+	size_t	i;
 
 	i = 0;
+	if (!s)
+		return (0);
 	while (s[i])
 		i++;
 	return (i);
@@ -62,7 +64,6 @@ char	*ft_strjoin(char *s1, char *s2)
 		j++;
 	}
 	ptr [i + j] = '\0';
-	free(s1);
 	return (ptr);
 }
 
@@ -76,8 +77,6 @@ char	*ft_strdup(const char *s)
 	while (s[len])
 		len++;
 	d = malloc(len + 1);
-	if (!d)
-		return (NULL);
 	i = 0;
 	while (s[i])
 	{
