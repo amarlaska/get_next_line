@@ -3,20 +3,26 @@
 # get_next_line
 
 ## Descripción
-En el proyecto de get_next_line tiene que leer ... Cada llamada devuelve la siguiente línea. 
+El objetivo del proyecto es construir una función capaz de leer y devolver una línea de texto desde un file descriptor cada vez que se llama a la función.
 
-### Funciones utilizadas en archivo get_next_line
+Para conseguirlo, la función debe gestionar correctamente la lectura de archivos o de la entrada estándar, almacenando temporalmente la información leída hasta encontrar un salto de línea (`\n`) o llegar al final del archivo. Además, debe recordar los datos que aún no se han devuelto para poder continuar la lectura en llamadas posteriores.
 
-char	*get_next_line(int fd);
-char	*read_and_stash(int fd, char *stash);
-char	*extract_line(char *stash);
-char	*update_stash(char *stash);
+Este proyecto sirve para comprender mejor conceptos fundamentales de C como la gestión de memoria dinámica, el uso de buffers, la lectura mediante file descriptors y la manipulación de cadenas de caracteres.
 
-### Funciones utilizadas en archivo get_next_line_utils
-size_t	ft_strlen(char *s);
-char	*ft_strchr(const char *s, int c);
-char	*ft_strjoin(char *s1, char *s2);
-char	*ft_strdup(const char *s);
+
+### Funciones principales
+
+**char**	***get_next_line(int fd)**
+Función principal del proyecto. Lee y devuelve la siguiente línea disponible del file descriptor recibido. Cada llamada devuelve una línea distinta hasta llegar al final del archivo.
+
+**char** ***read_and_stash(int fd, char *stash)***
+Lee datos desde el file descriptor y los almacena temporalmente en `stash` hasta encontrar un salto de línea o alcanzar el final de la lectura.
+
+**char** ***extract_line(char *stash)***
+Extrae y devuelve la primera línea completa almacenada en stash, incluyendo el salto de línea si existe.
+
+**char** ***update_stash(char *stash)***
+Actualiza el contenido de stash eliminando la línea que ya ha sido devuelta y conservando los datos restantes para futuras llamadas.
 
 ## Instrucciones
 
@@ -48,19 +54,11 @@ make re
 ### Reglas del Makefile
 
 El `Makefile` debe contener, como mínimo, las siguientes reglas:
-- `$(NAME)`: genera la librería `libft.a`
+- `$(NAME)`: genera la librería `get_next_line`
 - `all`: compila el proyecto
 - `clean`: elimina los archivos objeto
 - `fclean`: elimina los archivos objeto y la libreria.
 - `re`: recompila el proyecto desde cero
 
-### Archivos
-
-```text
-get_next_line/
-├── get_next_line.c         # Función principal
-├── get_next_line_utils.c   # Funciones auxiliares
-└── get_next_line.h         # Prototipo y BUFFER_SIZE
-```
-
 ## Recursos
+ME FALTAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
