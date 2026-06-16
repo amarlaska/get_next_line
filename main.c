@@ -7,17 +7,24 @@ int	main(void)
 {
 	int		fd;
 	char	*line;
+	int		count;
 
+	count = 0;
 	fd = open("texto.txt", O_RDONLY);
-	if (fd < 0)
-		return (1);
-
-	line = get_next_line(fd);
-	while (line)
+	if (fd == -1)
 	{
-		printf("%s", line);
-		free(line);
+		printf("Error opening file");
+		return (1);
+	}
+	while (1)
+	{
 		line = get_next_line(fd);
+		if (line == NULL)
+			break ;
+		count++;
+		printf("[%d]:%s\n", count, line); //count is to show you the line numbers
+		free(line);
+		line = NULL;
 	}
 	close(fd);
 	return (0);

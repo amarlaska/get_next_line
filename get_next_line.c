@@ -6,7 +6,7 @@
 /*   By: amarlasc <amarlasc@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/28 16:37:57 by amarlasc          #+#    #+#             */
-/*   Updated: 2026/06/15 16:44:51 by amarlasc         ###   ########.fr       */
+/*   Updated: 2026/06/16 16:28:03 by amarlasc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,7 @@ char	*read_and_stash(int fd, char *stash)
 		if (bytes_read < 0)
 			return (free (buffer), free(stash), NULL);
 		buffer[bytes_read] = '\0';
+		printf("Leido: [%s] (%d bytes)\n", buffer, bytes_read);
 		tmp = ft_strjoin(stash, buffer);
 		free(stash);
 		if (!tmp)

@@ -61,4 +61,6 @@ El `Makefile` debe contener, como mínimo, las siguientes reglas:
 - `re`: recompila el proyecto desde cero
 
 ## Recursos
-ME FALTAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+
+- La web de [MEDIUM] (https://medium.com/@lannur-s/gnl-c3cff1ee552b)
+- La web de [EDUCATIVE] (https://www.educative.io/answers/read-data-from-a-file-using-read-in-c)
