@@ -1,4 +1,4 @@
-*Este proyecto ha sido creado como parte del currículo de 42 por <amarlasc>*
+*Este proyecto ha sido creado como parte del currículo de 42 por amarlasc*
 
 # get_next_line
 
@@ -12,17 +12,13 @@ Este proyecto sirve para comprender mejor conceptos fundamentales de C como la g
 
 ### Funciones principales
 
-**char**	***get_next_line(int fd)**
-Función principal del proyecto. Lee y devuelve la siguiente línea disponible del file descriptor recibido. Cada llamada devuelve una línea distinta hasta llegar al final del archivo.
+`*get_next_line(int fd, char *stash)`: Función principal del proyecto. Lee y devuelve la siguiente línea disponible del file descriptor recibido. Cada llamada devuelve una línea distinta hasta llegar al final del archivo.
 
-**char** ***read_and_stash(int fd, char *stash)***
-Lee datos desde el file descriptor y los almacena temporalmente en `stash` hasta encontrar un salto de línea o alcanzar el final de la lectura.
+`*read_and_stash(int fd, char *stash)`: Lee datos desde el file descriptor y los almacena temporalmente en `stash` hasta encontrar un salto de línea o alcanzar el final de la lectura.
 
-**char** ***extract_line(char *stash)***
-Extrae y devuelve la primera línea completa almacenada en stash, incluyendo el salto de línea si existe.
+`*extract_line(char *stash)`: Extrae y devuelve la primera línea completa almacenada en stash, incluyendo el salto de línea si existe.
 
-**char** ***update_stash(char *stash)***
-Actualiza el contenido de stash eliminando la línea que ya ha sido devuelta y conservando los datos restantes para futuras llamadas.
+`*update_stash(char *stash)`: Actualiza el contenido de stash eliminando la línea que ya ha sido devuelta y conservando los datos restantes para futuras llamadas.
 
 ## Instrucciones
 
@@ -41,12 +37,18 @@ libft.a
 #### Limpieza de archivos
 
 Para limpiar archivos objeto:
+
+```bash
 make clean
+```
 
 Para eliminar la librería compilada:
+```bash
 make fclean
+```
 
 Para recompilar el proyecto desde cero:
+
 ```bash
 make re
 ```
