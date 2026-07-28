@@ -5,7 +5,7 @@
 ## Descripción
 El objetivo del proyecto es construir una función capaz de leer y devolver una línea de texto desde un file descriptor cada vez que se llama a la función.
 
-Para conseguirlo, la función debe gestionar correctamente la lectura de archivos o de la entrada estándar, almacenando temporalmente la información leída hasta encontrar un salto de línea (`\n`) o llegar al final del archivo. Además, debe recordar los datos que aún no se han devuelto para poder continuar la lectura en llamadas posteriores.
+Para conseguirlo, la función debe gestionar correctamente la lectura de archivos o de la entrada estándar, almacenando temporalmente la información leída hasta encontrar un salto de línea (`a`) o llegar al final del archivo. Además, debe recordar los datos que aún no se han devuelto para poder continuar la lectura en llamadas posteriores.
 
 Este proyecto sirve para comprender mejor conceptos fundamentales de C como la gestión de memoria dinámica, el uso de buffers, la lectura mediante file descriptors y la manipulación de cadenas de caracteres.
 
@@ -24,43 +24,16 @@ Este proyecto sirve para comprender mejor conceptos fundamentales de C como la g
 
 ### Compilación
 
-Para compilar la librería, ejecutar:
+Para compilar el archio, ejecutar:
 
-```bash
-make
-```
-Este comando generará el archivo:
-``bash
-libft.a
-``
+`cc -Wall -Werror -Wextra -D BUFFER_SIZE=25 get_next_line.c get_next_line_utils.c`
 
-#### Limpieza de archivos
+#### Ejecución del programa
 
-Para limpiar archivos objeto:
+Para ejecutar el programa:
 
-```bash
-make clean
-```
+`./a.out texto.txt`
 
-Para eliminar la librería compilada:
-```bash
-make fclean
-```
-
-Para recompilar el proyecto desde cero:
-
-```bash
-make re
-```
-
-### Reglas del Makefile
-
-El `Makefile` debe contener, como mínimo, las siguientes reglas:
-- `$(NAME)`: genera la librería `get_next_line`
-- `all`: compila el proyecto
-- `clean`: elimina los archivos objeto
-- `fclean`: elimina los archivos objeto y la libreria.
-- `re`: recompila el proyecto desde cero
 
 ## Recursos
 

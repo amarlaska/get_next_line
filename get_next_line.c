@@ -6,7 +6,7 @@
 /*   By: amarlasc <amarlasc@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/28 16:37:57 by amarlasc          #+#    #+#             */
-/*   Updated: 2026/07/21 15:45:57 by amarlasc         ###   ########.fr       */
+/*   Updated: 2026/07/28 17:04:52 by amarlasc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ char	*read_and_stash(int fd, char *stash)
 		stash = ft_strdup("");
 	buffer = malloc(BUFFER_SIZE + 1);
 	if (!stash || !buffer)
-		return (free(stash), free(stash), (NULL));
+		return (free(stash), (NULL));
 	bytes_read = 1;
 	while (bytes_read > 0 && !ft_strchr(stash, '\n'))
 	{
@@ -59,7 +59,7 @@ char	*extract_line(char *stash)
 		return (NULL);
 	}
 	i = 0;
-	while (i < len)
+	while (i <= len)
 	{
 		line[i] = stash[i];
 		i++;
@@ -117,3 +117,40 @@ char	*get_next_line(int fd)
 	stash = update_stash(stash);
 	return (line);
 }
+
+int	main(void)
+{
+	int		fd;
+	char	*line;
+	int		i;
+
+	fd = open("texto.txt", O_RDONLY);
+	if (fd == -1)
+	{
+		perror("Error al abrir texto.txt");
+		return (1);
+	}
+	i = 1;
+	line = get_next_line(fd);
+	while (line)
+	{
+		printf("Línea %d: %s", i, line);
+		free(line);
+		i++;
+		line = get_next_line(fd);
+	}
+	close(fd);
+	return (0);
+}
+/*
+int	main(void)
+{
+	char	*line;
+
+	while ((line = get_next_line(0)) != NULL)
+	{
+		printf("%s", line);
+		free(line);
+	}
+	return (0);
+}*/

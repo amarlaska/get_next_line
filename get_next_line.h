@@ -6,7 +6,7 @@
 /*   By: amarlasc <amarlasc@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/28 16:39:00 by amarlasc          #+#    #+#             */
-/*   Updated: 2026/06/16 18:07:22 by amarlasc         ###   ########.fr       */
+/*   Updated: 2026/07/28 16:11:16 by amarlasc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@
 # include <stdlib.h>
 # include <stddef.h>
 # include <stdio.h>
+# include <fcntl.h>
 
 char	*get_next_line(int fd);
 char	*read_and_stash(int fd, char *stash);
