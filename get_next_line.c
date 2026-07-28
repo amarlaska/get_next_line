@@ -6,7 +6,7 @@
 /*   By: amarlasc <amarlasc@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/28 16:37:57 by amarlasc          #+#    #+#             */
-/*   Updated: 2026/07/28 17:04:52 by amarlasc         ###   ########.fr       */
+/*   Updated: 2026/07/28 17:30:46 by amarlasc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,7 @@ char	*extract_line(char *stash)
 		return (NULL);
 	}
 	i = 0;
-	while (i <= len)
+	while (i < len)
 	{
 		line[i] = stash[i];
 		i++;
@@ -117,7 +117,7 @@ char	*get_next_line(int fd)
 	stash = update_stash(stash);
 	return (line);
 }
-
+/*
 int	main(void)
 {
 	int		fd;
@@ -140,17 +140,5 @@ int	main(void)
 		line = get_next_line(fd);
 	}
 	close(fd);
-	return (0);
-}
-/*
-int	main(void)
-{
-	char	*line;
-
-	while ((line = get_next_line(0)) != NULL)
-	{
-		printf("%s", line);
-		free(line);
-	}
 	return (0);
 }*/

@@ -32,10 +32,11 @@ Para compilar el archio, ejecutar:
 
 Para ejecutar el programa:
 
-`./a.out texto.txt`
+`./a.out`
 
 
 ## Recursos
 
-- La web de [MEDIUM] (https://medium.com/@lannur-s/gnl-c3cff1ee552b)
-- La web de [EDUCATIVE] (https://www.educative.io/answers/read-data-from-a-file-using-read-in-c)
+- La web de [MEDIUM](https://medium.com/@lannur-s/gnl-c3cff1ee552b)
+- La web de [EDUCATIVE](https://www.educative.io/answers/read-data-from-a-file-using-read-in-c)
+- La web de [42-cursus](https://42-cursus.gitbook.io/guide/1-rank-01/get_next_line)
